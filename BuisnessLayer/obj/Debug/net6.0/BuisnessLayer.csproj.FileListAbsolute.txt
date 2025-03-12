@@ -1,0 +1,17 @@
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\BuisnessLayer.deps.json
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\BuisnessLayer.dll
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\BuisnessLayer.pdb
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\ModelLayer.dll
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\RepositoryLayer.dll
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\ModelLayer.pdb
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\bin\Debug\net6.0\RepositoryLayer.pdb
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.csproj.AssemblyReference.cache
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.AssemblyInfoInputs.cache
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.AssemblyInfo.cs
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.csproj.CoreCompileInputs.cache
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\Buisness.5534DC49.Up2Date
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.dll
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\refint\BuisnessLayer.dll
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.pdb
+C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\ref\BuisnessLayer.dll

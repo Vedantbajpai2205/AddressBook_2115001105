@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\addressbook\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|solutionrelative:addressbook\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\repositorylayer\\migrations\\20250312173505_initialmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\migrations\\20250312173505_initialmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\addressbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|solutionrelative:addressbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\addressbook\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|solutionrelative:addressbook\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\addressbook\\controllers\\addressbookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{484BC93E-2061-4A36-930D-5EDDFE3A5C53}|AddressBook\\AddressBook.csproj|solutionrelative:addressbook\\controllers\\addressbookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B96B286-3D16-46E9-ADB1-EC151B566104}|ModelLayer\\ModelLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\modellayer\\model\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B96B286-3D16-46E9-ADB1-EC151B566104}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\model\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\repositorylayer\\context\\addresscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\context\\addresscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\repositorylayer\\entity\\addressentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\entity\\addressentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\repositorylayer\\entity\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2595D18-C567-48E6-BA08-25A8DBFD0C8C}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\entity\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B96B286-3D16-46E9-ADB1-EC151B566104}|ModelLayer\\ModelLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\modellayer\\modellayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0B96B286-3D16-46E9-ADB1-EC151B566104}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\modellayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{565C7636-77D8-4170-A760-204AFCFB543D}|BuisnessLayer\\BuisnessLayer.csproj|c:\\users\\vedant sir\\source\\repos\\addressbook\\buisnesslayer\\buisnesslayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{565C7636-77D8-4170-A760-204AFCFB543D}|BuisnessLayer\\BuisnessLayer.csproj|solutionrelative:buisnesslayer\\buisnesslayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250312173505_InitialMigration.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Migrations\\20250312173505_InitialMigration.cs",
+              "RelativeDocumentMoniker": "RepositoryLayer\\Migrations\\20250312173505_InitialMigration.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Migrations\\20250312173505_InitialMigration.cs",
+              "RelativeToolTip": "RepositoryLayer\\Migrations\\20250312173505_InitialMigration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T17:35:06.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddressEntity.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Entity\\AddressEntity.cs",
+              "RelativeDocumentMoniker": "RepositoryLayer\\Entity\\AddressEntity.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Entity\\AddressEntity.cs",
+              "RelativeToolTip": "RepositoryLayer\\Entity\\AddressEntity.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T19:35:20.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddressContext.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Context\\AddressContext.cs",
+              "RelativeDocumentMoniker": "RepositoryLayer\\Context\\AddressContext.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Context\\AddressContext.cs",
+              "RelativeToolTip": "RepositoryLayer\\Context\\AddressContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T19:35:01.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddressBookController.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\Controllers\\AddressBookController.cs",
+              "RelativeDocumentMoniker": "AddressBook\\Controllers\\AddressBookController.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\Controllers\\AddressBookController.cs",
+              "RelativeToolTip": "AddressBook\\Controllers\\AddressBookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T19:01:43.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\appsettings.json",
+              "RelativeDocumentMoniker": "AddressBook\\appsettings.json",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\appsettings.json",
+              "RelativeToolTip": "AddressBook\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-10T19:22:52.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Entity\\UserEntity.cs",
+              "RelativeDocumentMoniker": "RepositoryLayer\\Entity\\UserEntity.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\RepositoryLayer\\Entity\\UserEntity.cs",
+              "RelativeToolTip": "RepositoryLayer\\Entity\\UserEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T17:16:50.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\Program.cs",
+              "RelativeDocumentMoniker": "AddressBook\\Program.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\Program.cs",
+              "RelativeToolTip": "AddressBook\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T19:48:18.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "AddressBook\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\AddressBook\\Properties\\launchSettings.json",
+              "RelativeToolTip": "AddressBook\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-10T19:54:00.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResponseModel.cs",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\Model\\ResponseModel.cs",
+              "RelativeDocumentMoniker": "ModelLayer\\Model\\ResponseModel.cs",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\Model\\ResponseModel.cs",
+              "RelativeToolTip": "ModelLayer\\Model\\ResponseModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T20:07:20.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BuisnessLayer.csproj",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\BuisnessLayer\\BuisnessLayer.csproj",
+              "RelativeDocumentMoniker": "BuisnessLayer\\BuisnessLayer.csproj",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\BuisnessLayer\\BuisnessLayer.csproj",
+              "RelativeToolTip": "BuisnessLayer\\BuisnessLayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-10T19:36:37.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ModelLayer.csproj",
+              "DocumentMoniker": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\ModelLayer.csproj",
+              "RelativeDocumentMoniker": "ModelLayer\\ModelLayer.csproj",
+              "ToolTip": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\ModelLayer.csproj",
+              "RelativeToolTip": "ModelLayer\\ModelLayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-10T19:36:39.441Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

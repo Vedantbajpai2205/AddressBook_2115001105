@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\ModelLayer.csproj": {}
+    "C:\\Clone1\\AddressBook_2115001105\\ModelLayer\\ModelLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\ModelLayer.csproj": {
+    "C:\\Clone1\\AddressBook_2115001105\\ModelLayer\\ModelLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\ModelLayer.csproj",
+        "projectUniqueName": "C:\\Clone1\\AddressBook_2115001105\\ModelLayer\\ModelLayer.csproj",
         "projectName": "ModelLayer",
-        "projectPath": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\ModelLayer.csproj",
+        "projectPath": "C:\\Clone1\\AddressBook_2115001105\\ModelLayer\\ModelLayer.csproj",
         "packagesPath": "C:\\Users\\VEDANT SIR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\ModelLayer\\obj\\",
+        "outputPath": "C:\\Clone1\\AddressBook_2115001105\\ModelLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "NLog": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -10,7 +10,7 @@ using RepositoryLayer.Context;
 
 namespace RepositoryLayer.Migrations
 {
-    [DbContext(typeof(AddressContext))]
+    [DbContext(typeof(AddressBookContext))]
     [Migration("20250312173505_InitialMigration")]
     partial class InitialMigration
     {

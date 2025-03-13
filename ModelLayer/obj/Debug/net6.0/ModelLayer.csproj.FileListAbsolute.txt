@@ -9,3 +9,16 @@ C:\Users\VEDANT SIR\source\repos\AddressBook\ModelLayer\obj\Debug\net6.0\ModelLa
 C:\Users\VEDANT SIR\source\repos\AddressBook\ModelLayer\obj\Debug\net6.0\refint\ModelLayer.dll
 C:\Users\VEDANT SIR\source\repos\AddressBook\ModelLayer\obj\Debug\net6.0\ModelLayer.pdb
 C:\Users\VEDANT SIR\source\repos\AddressBook\ModelLayer\obj\Debug\net6.0\ref\ModelLayer.dll
+C:\Clone1\AddressBook_2115001105\ModelLayer\bin\Debug\net6.0\ModelLayer.deps.json
+C:\Clone1\AddressBook_2115001105\ModelLayer\bin\Debug\net6.0\ModelLayer.dll
+C:\Clone1\AddressBook_2115001105\ModelLayer\bin\Debug\net6.0\ModelLayer.pdb
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.csproj.AssemblyReference.cache
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.AssemblyInfoInputs.cache
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.AssemblyInfo.cs
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.csproj.CoreCompileInputs.cache
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.sourcelink.json
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.dll
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\refint\ModelLayer.dll
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ModelLayer.pdb
+C:\Clone1\AddressBook_2115001105\ModelLayer\obj\Debug\net6.0\ref\ModelLayer.dll

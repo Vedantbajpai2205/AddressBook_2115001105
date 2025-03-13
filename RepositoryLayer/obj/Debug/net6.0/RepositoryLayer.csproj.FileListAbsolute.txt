@@ -15,3 +15,21 @@ C:\Users\VEDANT SIR\source\repos\AddressBook\RepositoryLayer\obj\Debug\net6.0\re
 C:\Users\VEDANT SIR\source\repos\AddressBook\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.pdb
 C:\Users\VEDANT SIR\source\repos\AddressBook\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.genruntimeconfig.cache
 C:\Users\VEDANT SIR\source\repos\AddressBook\RepositoryLayer\obj\Debug\net6.0\ref\RepositoryLayer.dll
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.deps.json
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.runtimeconfig.json
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.dll
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.pdb
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\bin\Debug\net6.0\ModelLayer.dll
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\bin\Debug\net6.0\ModelLayer.pdb
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.csproj.AssemblyReference.cache
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.AssemblyInfoInputs.cache
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.AssemblyInfo.cs
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.csproj.CoreCompileInputs.cache
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.sourcelink.json
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\Reposito.A0A61804.Up2Date
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.dll
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\refint\RepositoryLayer.dll
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.pdb
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.genruntimeconfig.cache
+C:\Clone1\AddressBook_2115001105\RepositoryLayer\obj\Debug\net6.0\ref\RepositoryLayer.dll

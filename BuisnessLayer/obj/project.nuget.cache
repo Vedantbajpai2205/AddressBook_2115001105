@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cEtyUyKaTZQ=",
+  "dgSpecHash": "e6EMa5v2Q5s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\VEDANT SIR\\source\\repos\\AddressBook\\BuisnessLayer\\BuisnessLayer.csproj",
+  "projectFilePath": "C:\\Clone1\\AddressBook_2115001105\\BuisnessLayer\\BuisnessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
@@ -31,6 +31,9 @@
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\VEDANT SIR\\.nuget\\packages\\nlog\\5.4.0\\nlog.5.4.0.nupkg.sha512",
+    "C:\\Users\\VEDANT SIR\\.nuget\\packages\\nlog.extensions.logging\\5.4.0\\nlog.extensions.logging.5.4.0.nupkg.sha512",
+    "C:\\Users\\VEDANT SIR\\.nuget\\packages\\nlog.web.aspnetcore\\5.4.0\\nlog.web.aspnetcore.5.4.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\system.collections.immutable\\6.0.1\\system.collections.immutable.6.0.1.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.2\\system.diagnostics.diagnosticsource.6.0.2.nupkg.sha512",

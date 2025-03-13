@@ -9,7 +9,7 @@ using RepositoryLayer.Context;
 
 namespace RepositoryLayer.Migrations
 {
-    [DbContext(typeof(AddressContext))]
+    [DbContext(typeof(AddressBookContext))]
     partial class AddressContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -6,6 +6,9 @@ using RepositoryLayer.Context;
 using Microsoft.Extensions.Logging;
 using RepositoryLayer.Entity;
 using NLog;
+using AutoMapper;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace AddressBook.Controllers
 {
@@ -14,11 +17,15 @@ namespace AddressBook.Controllers
     public class AddressBookController : ControllerBase
     {
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private static List<AddressBookEntry> _addressBookEntries = new List<AddressBookEntry>();
+        private readonly IMapper _mapper;
+        private readonly IValidator<AddressBookEntryModel> _validator;
+        private static List<AddressBookEntity> _addressBookEntries = new List<AddressBookEntity>();
         private static int _idCounter = 1;
 
-        public AddressBookController()
+        public AddressBookController(IMapper mapper, IValidator<AddressBookEntryModel> validator)
         {
+            _mapper = mapper;
+            _validator = validator;
             _logger.Info("Logger has been integrated");
         }
         /// <summary>
@@ -29,14 +36,13 @@ namespace AddressBook.Controllers
         [HttpGet]
         public IActionResult GetAllContacts()
         {
-            ResponseModel<IEnumerable<AddressBookEntry>> responseModel = new ResponseModel<IEnumerable<AddressBookEntry>>();
-
-            responseModel.Success = true;
-            responseModel.Message = "Contacts fetched successfully.";
-            responseModel.Data = _addressBookEntries;
-
-            _logger.Info("Fetched all contacts successfully.");
-            return Ok(responseModel);
+            var contacts = _mapper.Map<IEnumerable<AddressBookEntryModel>>(_addressBookEntries);
+            return Ok(new ResponseModel<IEnumerable<AddressBookEntryModel>>
+            {
+                Success = true,
+                Message = "Contacts fetched successfully.",
+                Data = contacts
+            });
         }
         /// <summary>
         /// Get contacts by id
@@ -47,24 +53,18 @@ namespace AddressBook.Controllers
         [HttpGet("{id}")]
         public IActionResult GetContactById(int id)
         {
-            ResponseModel<AddressBookEntry> responseModel = new ResponseModel<AddressBookEntry>();
-
             var contact = _addressBookEntries.FirstOrDefault(e => e.Id == id);
-
             if (contact == null)
             {
-                _logger.Warn($"Contact with ID {id} not found.");
-                responseModel.Success = false;
-                responseModel.Message = "Contact not found.";
-                return NotFound(responseModel);
+                return NotFound(new ResponseModel<string> { Success = false, Message = "Contact not found." });
             }
 
-            responseModel.Success = true;
-            responseModel.Message = "Contact fetched successfully.";
-            responseModel.Data = contact;
-
-            _logger.Info($"Fetched contact with ID {id} successfully.");
-            return Ok(responseModel);
+            return Ok(new ResponseModel<AddressBookEntryModel>
+            {
+                Success = true,
+                Message = "Contact fetched successfully.",
+                Data = _mapper.Map<AddressBookEntryModel>(contact)
+            });
         }
         /// <summary>
         /// Add Contacts
@@ -73,27 +73,29 @@ namespace AddressBook.Controllers
         /// <returns></returns>
         // POST: api/addressbook
         [HttpPost]
-        public IActionResult AddContact([FromBody] RequestModel request)
+        public IActionResult AddContact([FromBody] AddressBookEntryModel request)
         {
-            ResponseModel<AddressBookEntry> responseModel = new ResponseModel<AddressBookEntry>();
-
-            var newContact = new AddressBookEntry
+            var validationResult = _validator.Validate(request);
+            if (!validationResult.IsValid)
             {
-                Id = _idCounter++,
-                Name = request.Name,
-                PhoneNumber = request.PhoneNumber,
-                Email = request.Email,
-                Address = request.Address
-            };
+                return BadRequest(new ResponseModel<string>
+                {
+                    Success = false,
+                    Message = "Validation failed.",
+                    Data = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage))
+                });
+            }
 
+            var newContact = _mapper.Map<AddressBookEntity>(request);
+            newContact.Id = _idCounter++;
             _addressBookEntries.Add(newContact);
 
-            responseModel.Success = true;
-            responseModel.Message = "Contact added successfully.";
-            responseModel.Data = newContact;
-
-            _logger.Info($"Add new contact with name {newContact.Name}.");
-            return CreatedAtAction(nameof(GetContactById), new { id = newContact.Id }, responseModel);
+            return CreatedAtAction(nameof(GetContactById), new { id = newContact.Id }, new ResponseModel<AddressBookEntryModel>
+            {
+                Success = true,
+                Message = "Contact added successfully.",
+                Data = _mapper.Map<AddressBookEntryModel>(newContact)
+            });
         }
         /// <summary>
         /// Edit by Id
@@ -103,31 +105,21 @@ namespace AddressBook.Controllers
         /// <returns></returns>
         // PUT: api/addressbook/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateContact(int id, [FromBody] RequestModel request)
+        public IActionResult UpdateContact(int id, [FromBody] AddressBookEntryModel request)
         {
-            ResponseModel<AddressBookEntry> responseModel = new ResponseModel<AddressBookEntry>();
-
             var existingContact = _addressBookEntries.FirstOrDefault(e => e.Id == id);
-
             if (existingContact == null)
             {
-                _logger.Warn($"Contact with ID {id} not found for update.");
-                responseModel.Success = false;
-                responseModel.Message = "Contact not found.";
-                return NotFound(responseModel);
+                return NotFound(new ResponseModel<string> { Success = false, Message = "Contact not found." });
             }
 
-            existingContact.Name = request.Name;
-            existingContact.PhoneNumber = request.PhoneNumber;
-            existingContact.Email = request.Email;
-            existingContact.Address = request.Address;
-
-            responseModel.Success = true;
-            responseModel.Message = "Contact updated successfully.";
-            responseModel.Data = existingContact;
-
-            _logger.Info($"Updated contact with ID {id} successfully.");
-            return Ok(responseModel);
+            _mapper.Map(request, existingContact);
+            return Ok(new ResponseModel<AddressBookEntryModel>
+            {
+                Success = true,
+                Message = "Contact updated successfully.",
+                Data = _mapper.Map<AddressBookEntryModel>(existingContact)
+            });
         }
         /// <summary>
         /// Delete by Id
@@ -138,24 +130,13 @@ namespace AddressBook.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteContact(int id)
         {
-            ResponseModel<string> responseModel = new ResponseModel<string>();
-
             var contactToDelete = _addressBookEntries.FirstOrDefault(e => e.Id == id);
-
             if (contactToDelete == null)
             {
-                _logger.Warn($"Contact with ID {id} not found for deletion.");
-                responseModel.Success = false;
-                responseModel.Message = "Contact not found.";
-                return NotFound(responseModel);
+                return NotFound(new ResponseModel<string> { Success = false, Message = "Contact not found." });
             }
 
             _addressBookEntries.Remove(contactToDelete);
-
-            responseModel.Success = true;
-            responseModel.Message = "Contact deleted successfully.";
-
-            _logger.Info($"Delete contact with ID {id} successfully.");
             return NoContent();
         }
     }

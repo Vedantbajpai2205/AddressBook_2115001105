@@ -15,3 +15,21 @@ C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\Buis
 C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\refint\BuisnessLayer.dll
 C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.pdb
 C:\Users\VEDANT SIR\source\repos\AddressBook\BuisnessLayer\obj\Debug\net6.0\ref\BuisnessLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\BuisnessLayer.deps.json
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\BuisnessLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\BuisnessLayer.pdb
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\ModelLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\RepositoryLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\ModelLayer.pdb
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\RepositoryLayer.pdb
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.csproj.AssemblyReference.cache
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.AssemblyInfoInputs.cache
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.AssemblyInfo.cs
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.csproj.CoreCompileInputs.cache
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.sourcelink.json
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\Buisness.5534DC49.Up2Date
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\refint\BuisnessLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.pdb
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\ref\BuisnessLayer.dll

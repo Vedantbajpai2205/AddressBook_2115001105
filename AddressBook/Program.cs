@@ -1,4 +1,4 @@
-using FluentValidation.AspNetCore;
+﻿using FluentValidation.AspNetCore;
 using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +20,7 @@ using RepositoryLayer.Service;
 using System.Text;
 using StackExchange.Redis;
 using Middleware.Email;
+using Middleware.RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,9 @@ builder.Services.AddDbContext<AddressBookContext>(options => options.UseSqlServe
 builder.Services.AddAutoMapper(typeof(MappingProfileBL));
 builder.Services.AddAutoMapper(typeof(UserMapper));
 
+
+builder.Services.AddScoped<IAddressBookBL, AddressBookBL>();
+builder.Services.AddScoped<IAddressBookRL, AddressBookRL>();
 builder.Services.AddScoped<IUserBL, UserBL>();
 builder.Services.AddScoped<IUserRL, UserRL>();
 builder.Services.AddScoped<JwtTokenService>();
@@ -44,6 +48,19 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.InstanceName = builder.Configuration["Redis:InstanceName"];
 });
 
+// ✅ Register RabbitMQ
+builder.Services.AddSingleton<RabbitMqService>();
+builder.Services.AddSingleton<RabbitMqConsumer>(); // ✅ Ensure Consumer is Registered
+builder.Services.AddHostedService<RabbitMqBackgroundService>(); // ✅ Run Consumer as Background Service
+
+// ✅ Configure CORS (Fix: Allow Frontend Integration)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
 // ? Session Management (Fix: Add UseSession Middleware)
 builder.Services.AddSession(options =>
 {
@@ -79,8 +96,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 
-builder.Services.AddScoped<IAddressBookBL, AddressBookBL>();
-builder.Services.AddScoped<IAddressBookRL, AddressBookRL>();
 
 // Add services to the container.
 builder.Services.AddControllers();

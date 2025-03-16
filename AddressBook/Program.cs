@@ -21,6 +21,7 @@ using Microsoft.IdentityModel.Tokens;
 using Middleware.Authenticator;
 using RepositoryLayer.Service;
 using System.Text;
+using Middleware.Email;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,7 @@ builder.Services.AddAutoMapper(typeof(UserMapper));
 builder.Services.AddScoped<IUserBL, UserBL>();
 builder.Services.AddScoped<IUserRL, UserRL>();
 builder.Services.AddScoped<JwtTokenService>();
+builder.Services.AddScoped<EmailService>();
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -97,6 +99,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// ? Enable Authentication and Authorization before routing
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

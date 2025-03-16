@@ -179,3 +179,4 @@ C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\AutoMapper.Extensi
 C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\FluentValidation.dll
 C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Newtonsoft.Json.dll

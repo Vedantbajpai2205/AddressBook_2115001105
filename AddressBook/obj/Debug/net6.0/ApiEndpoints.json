@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "AddressBook.Controllers.AddressBookController",
-    "Method": "GetAllContacts",
+    "Method": "GetAll",
     "RelativePath": "api/AddressBook",
     "HttpMethod": "GET",
     "IsController": true,
@@ -11,23 +11,33 @@
   },
   {
     "ContainingType": "AddressBook.Controllers.AddressBookController",
-    "Method": "AddContact",
+    "Method": "Add",
     "RelativePath": "api/AddressBook",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "ModelLayer.Model.AddressBookEntryModel",
+        "Name": "requestModel",
+        "Type": "ModelLayer.Model.RequestModel",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ModelLayer.Model.ResponseModel\u00601[[ModelLayer.Model.AddressBookEntryModel, ModelLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "AddressBook.Controllers.AddressBookController",
-    "Method": "GetContactById",
+    "Method": "GetById",
     "RelativePath": "api/AddressBook/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -43,7 +53,7 @@
   },
   {
     "ContainingType": "AddressBook.Controllers.AddressBookController",
-    "Method": "UpdateContact",
+    "Method": "Update",
     "RelativePath": "api/AddressBook/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -55,7 +65,7 @@
         "IsRequired": true
       },
       {
-        "Name": "request",
+        "Name": "addressBookModel",
         "Type": "ModelLayer.Model.AddressBookEntryModel",
         "IsRequired": true
       }
@@ -64,7 +74,7 @@
   },
   {
     "ContainingType": "AddressBook.Controllers.AddressBookController",
-    "Method": "DeleteContact",
+    "Method": "Delete",
     "RelativePath": "api/AddressBook/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

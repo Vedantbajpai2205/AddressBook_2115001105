@@ -8,10 +8,7 @@ using NLog;
 using RepositoryLayer.Context;
 using System;
 using AddressBook.Mapping;
-using BuisnessLayer.Interface;
-using BusinessLayer.Services;
 using RepositoryLayer.Interface;
-using RepositoryLayer.Services;
 using BuisnessLayer.Mapping;
 using BusinessLayer.Interface;
 using BusinessLayer.Mapping;
@@ -21,6 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 using Middleware.Authenticator;
 using RepositoryLayer.Service;
 using System.Text;
+using StackExchange.Redis;
 using Middleware.Email;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +35,22 @@ builder.Services.AddScoped<IUserRL, UserRL>();
 builder.Services.AddScoped<JwtTokenService>();
 builder.Services.AddScoped<EmailService>();
 
+builder.Services.AddScoped<ICacheService, CacheService>(); // ? Use Custom Cache Service
+
+// ? Configure Redis (Improved Configuration)
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration["Redis:ConnectionString"];
+    options.InstanceName = builder.Configuration["Redis:InstanceName"];
+});
+
+// ? Session Management (Fix: Add UseSession Middleware)
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var jwtKey = jwtSettings["Key"];
@@ -98,7 +112,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting(); // ?? Place routing before authentication
 // ? Enable Authentication and Authorization before routing
 app.UseAuthentication();
 app.UseAuthorization();

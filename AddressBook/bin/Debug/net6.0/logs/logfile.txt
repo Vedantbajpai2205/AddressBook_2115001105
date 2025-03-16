@@ -1770,3 +1770,19 @@ WHERE [u].[Email] = @__email_0
 2025-03-16 16:07:28.8075 Info Executed action AddressBook.Controllers.AuthController.ForgotPassword (AddressBook) in 10751.948ms 
 2025-03-16 16:07:28.8075 Info Executed endpoint 'AddressBook.Controllers.AuthController.ForgotPassword (AddressBook)' 
 2025-03-16 16:07:28.8075 Info Request finished HTTP/2 POST https://localhost:7298/api/Auth/forgot-password application/json 45 - 200 - application/json;+charset=utf-8 10766.3496ms 
+2025-03-16 19:33:15.4427 Info User profile is available. Using 'C:\Users\VEDANT SIR\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2025-03-16 19:33:16.0380 Info Now listening on: https://localhost:7298 
+2025-03-16 19:33:16.0380 Info Now listening on: http://localhost:5121 
+2025-03-16 19:33:16.1175 Info Application started. Press Ctrl+C to shut down. 
+2025-03-16 19:33:16.1175 Info Hosting environment: Development 
+2025-03-16 19:33:16.1200 Info Content root path: C:\Clone1\AddressBook_2115001105\AddressBook\ 
+2025-03-16 19:33:19.1293 Info Request starting HTTP/2 GET https://localhost:7298/swagger/index.html - - 
+2025-03-16 19:33:19.5978 Info Request finished HTTP/2 GET https://localhost:7298/swagger/index.html - - - 200 - text/html;charset=utf-8 472.5484ms 
+2025-03-16 19:33:19.6331 Info Request starting HTTP/2 GET https://localhost:7298/_vs/browserLink - - 
+2025-03-16 19:33:19.6331 Info Request starting HTTP/2 GET https://localhost:7298/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-16 19:33:19.6331 Info Request starting HTTP/2 GET https://localhost:7298/swagger/index.js - - 
+2025-03-16 19:33:19.6371 Info Request finished HTTP/2 GET https://localhost:7298/swagger/index.js - - - 200 - application/javascript;charset=utf-8 3.8759ms 
+2025-03-16 19:33:19.6371 Info Request finished HTTP/2 GET https://localhost:7298/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 9.7704ms 
+2025-03-16 19:33:19.7333 Info Request finished HTTP/2 GET https://localhost:7298/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.1215ms 
+2025-03-16 19:33:19.7974 Info Request starting HTTP/2 GET https://localhost:7298/swagger/v1/swagger.json - - 
+2025-03-16 19:33:19.8121 Info Request finished HTTP/2 GET https://localhost:7298/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 15.2473ms 

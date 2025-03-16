@@ -1,78 +1,67 @@
-﻿using RepositoryLayer.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using RepositoryLayer.Context;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;
-using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore;
-using ModelLayer.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace RepositoryLayer.Services
+namespace RepositoryLayer.Service
 {
     public class AddressBookRL : IAddressBookRL
     {
-        private readonly AddressBookContext _context;
+        private readonly AddressBookContext _dbContext;
 
-        public AddressBookRL(AddressBookContext context)
+        public AddressBookRL(AddressBookContext dbContext)
         {
-            _context = context;
-        }
-
-        public AddressBookEntity Add(AddressBookEntity addressBookEntity)
-        {
-            // Check if the UserId exists in the Users table
-            //var user = _context.Users.FirstOrDefault(u => u.UserId == addressBookEntity.Id);
-            //var addressbook = new AddressBookEntity
-            //{
-            //    UserId = user.UserId,
-            //    Name = addressBookEntity.Name,
-            //    PhoneNumber = addressBookEntity.PhoneNumber,
-            //    Email = addressBookEntity.Email,
-            //    Address = addressBookEntity.Address,
-            //};
-
-            // Add the address book entry
-            _context.AddressBookEntries.Add(addressBookEntity);
-            _context.SaveChanges();
-
-            return addressBookEntity;
-        }
-
-
-        public AddressBookEntity Update(int id, AddressBookEntity addressBookEntity)
-        {
-            var existingEntity = _context.AddressBookEntries.FirstOrDefault(c => c.Id == id);
-            if (existingEntity != null)
-            {
-                existingEntity.Name = addressBookEntity.Name;
-                existingEntity.PhoneNumber = addressBookEntity.PhoneNumber;
-                existingEntity.Email = addressBookEntity.Email;
-                existingEntity.Address = addressBookEntity.Address;
-
-                _context.AddressBookEntries.Update(existingEntity);
-                _context.SaveChanges();
-            }
-            return existingEntity;
-        }
-
-        public AddressBookEntity GetById(int id)
-        {
-            return _context.AddressBookEntries.Find(id);
+            _dbContext = dbContext;
         }
 
         public IEnumerable<AddressBookEntity> GetAll()
         {
-            return _context.AddressBookEntries.ToList();
+            return _dbContext.AddressBookEntries.ToList();
+        }
+
+        public AddressBookEntity GetById(int id)
+        {
+            return _dbContext.AddressBookEntries.Find(id);
+        }
+
+        public AddressBookEntity Add(AddressBookEntity contact)
+        {
+            _dbContext.AddressBookEntries.Add(contact);
+            _dbContext.SaveChanges();
+            return contact;
+        }
+
+        public AddressBookEntity Update(int id, AddressBookEntity contact)
+        {
+            var existingContact = _dbContext.AddressBookEntries.FirstOrDefault(c => c.Id == id);
+
+            if (existingContact == null)
+            {
+                return null;
+            }
+
+            // Update fields
+            existingContact.Name = contact.Name;
+            existingContact.PhoneNumber = contact.PhoneNumber;
+            existingContact.Email = contact.Email;
+            existingContact.Address = contact.Address;
+
+            _dbContext.AddressBookEntries.Update(existingContact);
+            _dbContext.SaveChanges();
+            return existingContact;
         }
 
         public bool Delete(int id)
         {
-            var entity = _context.AddressBookEntries.Find(id);
-            if (entity != null)
-            {
-                _context.AddressBookEntries.Remove(entity);
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
+            var entry = _dbContext.AddressBookEntries.Find(id);
+            if (entry == null) return false;
+
+            _dbContext.AddressBookEntries.Remove(entry);
+            _dbContext.SaveChanges();
+            return true;
         }
     }
 }

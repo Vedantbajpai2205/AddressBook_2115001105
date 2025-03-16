@@ -183,3 +183,7 @@ C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Newtonsoft.Json.dl
 C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Middleware.dll
 C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Middleware.pdb
+C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Clone1\AddressBook_2115001105\AddressBook\bin\Debug\net6.0\StackExchange.Redis.dll

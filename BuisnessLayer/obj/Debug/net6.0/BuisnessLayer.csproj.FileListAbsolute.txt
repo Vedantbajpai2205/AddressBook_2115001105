@@ -33,3 +33,5 @@ C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.dl
 C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\refint\BuisnessLayer.dll
 C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\BuisnessLayer.pdb
 C:\Clone1\AddressBook_2115001105\BuisnessLayer\obj\Debug\net6.0\ref\BuisnessLayer.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\Middleware.dll
+C:\Clone1\AddressBook_2115001105\BuisnessLayer\bin\Debug\net6.0\Middleware.pdb

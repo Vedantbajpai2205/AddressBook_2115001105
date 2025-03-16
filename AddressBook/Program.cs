@@ -13,6 +13,14 @@ using BusinessLayer.Services;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Services;
 using BuisnessLayer.Mapping;
+using BusinessLayer.Interface;
+using BusinessLayer.Mapping;
+using BusinessLayer.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Middleware.Authenticator;
+using RepositoryLayer.Service;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +29,39 @@ var connectionString = builder.Configuration.GetConnectionString("SqlConnection"
 builder.Services.AddDbContext<AddressBookContext>(options => options.UseSqlServer(connectionString));
 //auto mapper
 builder.Services.AddAutoMapper(typeof(MappingProfileBL));
+builder.Services.AddAutoMapper(typeof(UserMapper));
+
+builder.Services.AddScoped<IUserBL, UserBL>();
+builder.Services.AddScoped<IUserRL, UserRL>();
+builder.Services.AddScoped<JwtTokenService>();
+
+// Configure JWT Authentication
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var jwtKey = jwtSettings["Key"];
+
+if (string.IsNullOrEmpty(jwtKey))
+{
+    throw new Exception("JWT Key is missing in configuration");
+}
+
+var key = Encoding.UTF8.GetBytes(jwtKey);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
 
 builder.Services.AddScoped<IAddressBookBL, AddressBookBL>();
 builder.Services.AddScoped<IAddressBookRL, AddressBookRL>();

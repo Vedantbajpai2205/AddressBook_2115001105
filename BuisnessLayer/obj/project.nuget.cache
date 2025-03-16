@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "NPnAf9r5myA=",
+  "dgSpecHash": "+WJKIaQMcp4=",
   "success": true,
   "projectFilePath": "C:\\Clone1\\AddressBook_2115001105\\BuisnessLayer\\BuisnessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
+    "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.36\\microsoft.aspnetcore.authentication.jwtbearer.6.0.36.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
     "C:\\Users\\VEDANT SIR\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

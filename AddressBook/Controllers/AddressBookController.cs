@@ -1,143 +1,141 @@
 ﻿using AutoMapper;
+using BusinessLayer.Interface;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Model;
-using BuisnessLayer.Interface;
-using Newtonsoft.Json;
-using BuisnessLayer.Interface;
-using ModelLayer.Model;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AddressBook.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/addressbook")]
     public class AddressBookController : ControllerBase
     {
         private readonly IAddressBookBL _addressBookBL;
+        private readonly IValidator<RequestModel> _validator;
 
-        public AddressBookController(IAddressBookBL addressBookBL)
+        public AddressBookController(IAddressBookBL addressBookBL, IValidator<RequestModel> validator)
         {
             _addressBookBL = addressBookBL;
+            _validator = validator;
         }
 
+        // GET: Fetch all contacts
         [HttpGet]
-        public IActionResult GetAll()
+        public ActionResult<ResponseModel<IEnumerable<AddressBookEntryModel>>> GetAll()
         {
             var contacts = _addressBookBL.GetAll();
-
-            ResponseModel<IEnumerable<AddressBookEntryModel>> responseModel = new ResponseModel<IEnumerable<AddressBookEntryModel>>
+            return Ok(new ResponseModel<IEnumerable<AddressBookEntryModel>>
             {
                 Success = true,
-                Message = "All contacts fetched successfully",
+                Message = "Contacts retrieved successfully.",
                 Data = contacts
-            };
-
-            return Ok(responseModel);
+            });
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        // GET: Fetch contact by ID
+        [HttpGet("get/{id}")]
+        public ActionResult<ResponseModel<AddressBookEntryModel>> GetContactById(int id)
         {
             var contact = _addressBookBL.GetById(id);
-
             if (contact == null)
             {
-                return NotFound(new ResponseModel<string>
+                return NotFound(new ResponseModel<AddressBookEntryModel>
                 {
                     Success = false,
-                    Message = $"Contact with ID {id} not found",
+                    Message = $"Contact with ID {id} not found.",
                     Data = null
                 });
             }
 
-            ResponseModel<AddressBookEntryModel> responseModel = new ResponseModel<AddressBookEntryModel>
+            return Ok(new ResponseModel<AddressBookEntryModel>
             {
                 Success = true,
-                Message = $"Contact with ID {id} fetched successfully",
+                Message = "Contact retrieved successfully.",
                 Data = contact
-            };
-
-            return Ok(responseModel);
+            });
         }
 
-        [HttpPost]
-        public ActionResult<ResponseModel<AddressBookEntryModel>> Add([FromBody] RequestModel requestModel)
+        // POST: Add new contact
+        [HttpPost("add")]
+        public ActionResult<ResponseModel<AddressBookEntryModel>> Add([FromBody] RequestModel dto)
         {
-
-            if (!ModelState.IsValid)
+            var validationResult = _validator.Validate(dto);
+            if (!validationResult.IsValid)
             {
                 return BadRequest(new ResponseModel<object>
                 {
                     Success = false,
                     Message = "Validation failed.",
-                    Data = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    Data = validationResult.Errors.Select(e => e.ErrorMessage)
                 });
             }
 
-            var addedContact = _addressBookBL.Add(requestModel);
-
-            return CreatedAtAction(nameof(GetById), new { id = addedContact.Id }, new ResponseModel<AddressBookEntryModel>
+            var newContact = _addressBookBL.Add(dto);
+            return CreatedAtAction(nameof(GetContactById), new { id = newContact.Id }, new ResponseModel<AddressBookEntryModel>
             {
                 Success = true,
                 Message = "Contact added successfully.",
-                Data = addedContact
+                Data = newContact
             });
         }
 
-
-
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] AddressBookEntryModel addressBookModel)
+        // PUT: Update contact
+        [HttpPut("update/{id}")]
+        public ActionResult<ResponseModel<AddressBookEntryModel>> Update(int id, [FromBody] RequestModel dto)
         {
-            if (!ModelState.IsValid)
+            var validationResult = _validator.Validate(dto);
+            if (!validationResult.IsValid)
             {
-                return BadRequest(ModelState);
-            }
-
-            var updatedContact = _addressBookBL.Update(id, addressBookModel);
-
-            if (updatedContact == null)
-            {
-                return NotFound(new ResponseModel<string>
+                return BadRequest(new ResponseModel<object>
                 {
                     Success = false,
-                    Message = $"Contact with ID {id} not found",
+                    Message = "Validation failed.",
+                    Data = validationResult.Errors.Select(e => e.ErrorMessage)
+                });
+            }
+
+            var updatedContact = _addressBookBL.Update(id, dto);
+            if (updatedContact == null)
+            {
+                return NotFound(new ResponseModel<AddressBookEntryModel>
+                {
+                    Success = false,
+                    Message = $"Contact with ID {id} not found.",
                     Data = null
                 });
             }
 
-            ResponseModel<AddressBookEntryModel> responseModel = new ResponseModel<AddressBookEntryModel>
+            return Ok(new ResponseModel<AddressBookEntryModel>
             {
                 Success = true,
-                Message = $"Contact with ID {id} updated successfully",
+                Message = "Contact updated successfully.",
                 Data = updatedContact
-            };
-
-            return Ok(responseModel);
+            });
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        // DELETE: Delete contact
+        [HttpDelete("delete/{id}")]
+        public ActionResult<ResponseModel<string>> DeleteContact(int id)
         {
             var isDeleted = _addressBookBL.Delete(id);
-
             if (!isDeleted)
             {
                 return NotFound(new ResponseModel<string>
                 {
                     Success = false,
-                    Message = $"Contact with ID {id} not found",
+                    Message = $"Contact with ID {id} not found.",
                     Data = null
                 });
             }
 
-            ResponseModel<string> responseModel = new ResponseModel<string>
+            return Ok(new ResponseModel<string>
             {
                 Success = true,
-                Message = $"Contact with ID {id} deleted successfully",
-                Data = "Deletion successful"
-            };
-
-            return Ok(responseModel);
+                Message = "Contact deleted successfully.",
+                Data = "Deleted"
+            });
         }
     }
 }

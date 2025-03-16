@@ -5,17 +5,76 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/AddressBook": {
+    "/api/addressbook": {
       "get": {
         "tags": [
           "AddressBook"
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelIEnumerableResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelIEnumerableResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelIEnumerableResponseModel"
+                }
+              }
+            }
           }
         }
-      },
+      }
+    },
+    "/api/addressbook/get/{id}": {
+      "get": {
+        "tags": [
+          "AddressBook"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/addressbook/add": {
       "post": {
         "tags": [
           "AddressBook"
@@ -63,28 +122,7 @@
         }
       }
     },
-    "/api/AddressBook/{id}": {
-      "get": {
-        "tags": [
-          "AddressBook"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+    "/api/addressbook/update/{id}": {
       "put": {
         "tags": [
           "AddressBook"
@@ -104,27 +142,46 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddressBookEntryModel"
+                "$ref": "#/components/schemas/RequestModel"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddressBookEntryModel"
+                "$ref": "#/components/schemas/RequestModel"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/AddressBookEntryModel"
+                "$ref": "#/components/schemas/RequestModel"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressBookEntryModelResponseModel"
+                }
+              }
+            }
           }
         }
-      },
+      }
+    },
+    "/api/addressbook/delete/{id}": {
       "delete": {
         "tags": [
           "AddressBook"
@@ -142,7 +199,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringResponseModel"
+                }
+              }
+            }
           }
         }
       }
@@ -356,6 +430,26 @@
         },
         "additionalProperties": false
       },
+      "AddressBookEntryModelIEnumerableResponseModel": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddressBookEntryModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AddressBookEntryModelResponseModel": {
         "type": "object",
         "properties": {
@@ -417,6 +511,10 @@
       "RequestModel": {
         "type": "object",
         "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -444,6 +542,23 @@
             "nullable": true
           },
           "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringResponseModel": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
             "type": "string",
             "nullable": true
           }

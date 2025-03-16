@@ -1723,3 +1723,50 @@ WHERE [u].[Email] = @__email_0
 2025-03-16 15:39:50.0463 Info Executed action AddressBook.Controllers.AuthController.Login (AddressBook) in 548.1471ms 
 2025-03-16 15:39:50.0463 Info Executed endpoint 'AddressBook.Controllers.AuthController.Login (AddressBook)' 
 2025-03-16 15:39:50.0463 Info Request finished HTTP/2 POST https://localhost:7298/api/Auth/login application/json 47 - 200 - application/json;+charset=utf-8 557.8654ms 
+2025-03-16 16:03:34.2689 Info User profile is available. Using 'C:\Users\VEDANT SIR\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2025-03-16 16:03:34.8782 Info Now listening on: https://localhost:7298 
+2025-03-16 16:03:34.8782 Info Now listening on: http://localhost:5121 
+2025-03-16 16:03:34.9464 Info Application started. Press Ctrl+C to shut down. 
+2025-03-16 16:03:34.9464 Info Hosting environment: Development 
+2025-03-16 16:03:34.9464 Info Content root path: C:\Clone1\AddressBook_2115001105\AddressBook\ 
+2025-03-16 16:03:36.4984 Info Request starting HTTP/2 GET https://localhost:7298/swagger/index.html - - 
+2025-03-16 16:03:36.9890 Info Request finished HTTP/2 GET https://localhost:7298/swagger/index.html - - - 200 - text/html;charset=utf-8 494.2818ms 
+2025-03-16 16:03:37.1998 Info Request starting HTTP/2 GET https://localhost:7298/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-16 16:03:37.1998 Info Request starting HTTP/2 GET https://localhost:7298/swagger/index.js - - 
+2025-03-16 16:03:37.1998 Info Request finished HTTP/2 GET https://localhost:7298/swagger/index.js - - - 200 - application/javascript;charset=utf-8 2.7586ms 
+2025-03-16 16:03:37.1998 Info Request starting HTTP/2 GET https://localhost:7298/_vs/browserLink - - 
+2025-03-16 16:03:37.1998 Info Request finished HTTP/2 GET https://localhost:7298/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 8.3915ms 
+2025-03-16 16:03:37.3765 Info Request finished HTTP/2 GET https://localhost:7298/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 170.9569ms 
+2025-03-16 16:03:37.4728 Info Request starting HTTP/2 GET https://localhost:7298/swagger/v1/swagger.json - - 
+2025-03-16 16:03:37.4846 Info Request finished HTTP/2 GET https://localhost:7298/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.8939ms 
+2025-03-16 16:06:04.2194 Info Request starting HTTP/2 POST https://localhost:7298/api/Auth/register application/json 92 
+2025-03-16 16:06:04.4162 Info Executing endpoint 'AddressBook.Controllers.AuthController.Register (AddressBook)' 
+2025-03-16 16:06:04.4691 Info Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.Model.RegisterUserDTO) on controller AddressBook.Controllers.AuthController (AddressBook). 
+2025-03-16 16:06:06.8479 Info Entity Framework Core 6.0.36 initialized 'AddressBookContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-16 16:06:08.5361 Info Executed DbCommand (114ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FullName], [u].[PasswordHash]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-16 16:06:08.9624 Info Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 100), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [FullName], [PasswordHash])
+VALUES (@p0, @p1, @p2);
+SELECT [UserId]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [UserId] = scope_identity(); 
+2025-03-16 16:06:09.0687 Info Executing OkObjectResult, writing value of type 'ModelLayer.Model.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-16 16:06:09.0846 Info Executed action AddressBook.Controllers.AuthController.Register (AddressBook) in 4604.1913ms 
+2025-03-16 16:06:09.0846 Info Executed endpoint 'AddressBook.Controllers.AuthController.Register (AddressBook)' 
+2025-03-16 16:06:09.0993 Info Request finished HTTP/2 POST https://localhost:7298/api/Auth/register application/json 92 - 200 - application/json;+charset=utf-8 4879.9006ms 
+2025-03-16 16:07:18.0440 Info Request starting HTTP/2 POST https://localhost:7298/api/Auth/forgot-password application/json 45 
+2025-03-16 16:07:18.0542 Info Executing endpoint 'AddressBook.Controllers.AuthController.ForgotPassword (AddressBook)' 
+2025-03-16 16:07:18.0542 Info Route matched with {action = "ForgotPassword", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ForgotPassword(ModelLayer.Model.ForgotPasswordDTO) on controller AddressBook.Controllers.AuthController (AddressBook). 
+2025-03-16 16:07:18.0909 Info Entity Framework Core 6.0.36 initialized 'AddressBookContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-16 16:07:18.1398 Info Executed DbCommand (14ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FullName], [u].[PasswordHash]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-16 16:07:28.8075 Info Executing OkObjectResult, writing value of type 'ModelLayer.Model.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-16 16:07:28.8075 Info Executed action AddressBook.Controllers.AuthController.ForgotPassword (AddressBook) in 10751.948ms 
+2025-03-16 16:07:28.8075 Info Executed endpoint 'AddressBook.Controllers.AuthController.ForgotPassword (AddressBook)' 
+2025-03-16 16:07:28.8075 Info Request finished HTTP/2 POST https://localhost:7298/api/Auth/forgot-password application/json 45 - 200 - application/json;+charset=utf-8 10766.3496ms 

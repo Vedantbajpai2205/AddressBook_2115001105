@@ -8,12 +8,22 @@ using NLog;
 using RepositoryLayer.Context;
 using System;
 using AddressBook.Mapping;
+using BuisnessLayer.Interface;
+using BusinessLayer.Services;
+using RepositoryLayer.Interface;
+using RepositoryLayer.Services;
+using BuisnessLayer.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Database Connection
 var connectionString = builder.Configuration.GetConnectionString("SqlConnection");
 builder.Services.AddDbContext<AddressBookContext>(options => options.UseSqlServer(connectionString));
+//auto mapper
+builder.Services.AddAutoMapper(typeof(MappingProfileBL));
+
+builder.Services.AddScoped<IAddressBookBL, AddressBookBL>();
+builder.Services.AddScoped<IAddressBookRL, AddressBookRL>();
 
 // Add services to the container.
 builder.Services.AddControllers();

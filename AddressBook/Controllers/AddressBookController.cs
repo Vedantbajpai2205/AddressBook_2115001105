@@ -1,14 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ModelLayer.Model; // Include your models
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using RepositoryLayer.Context;
-using Microsoft.Extensions.Logging;
-using RepositoryLayer.Entity;
-using NLog;
-using AutoMapper;
-using FluentValidation;
-using System.ComponentModel.DataAnnotations;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using ModelLayer.Model;
+using BuisnessLayer.Interface;
+using Newtonsoft.Json;
+using BuisnessLayer.Interface;
+using ModelLayer.Model;
 
 namespace AddressBook.Controllers
 {
@@ -16,128 +12,132 @@ namespace AddressBook.Controllers
     [Route("api/[controller]")]
     public class AddressBookController : ControllerBase
     {
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly IMapper _mapper;
-        private readonly IValidator<AddressBookEntryModel> _validator;
-        private static List<AddressBookEntity> _addressBookEntries = new List<AddressBookEntity>();
-        private static int _idCounter = 1;
+        private readonly IAddressBookBL _addressBookBL;
 
-        public AddressBookController(IMapper mapper, IValidator<AddressBookEntryModel> validator)
+        public AddressBookController(IAddressBookBL addressBookBL)
         {
-            _mapper = mapper;
-            _validator = validator;
-            _logger.Info("Logger has been integrated");
+            _addressBookBL = addressBookBL;
         }
-        /// <summary>
-        /// Get contacts 
-        /// </summary>
-        /// <returns></returns>
-        // GET: api/addressbook
+
         [HttpGet]
-        public IActionResult GetAllContacts()
+        public IActionResult GetAll()
         {
-            var contacts = _mapper.Map<IEnumerable<AddressBookEntryModel>>(_addressBookEntries);
-            return Ok(new ResponseModel<IEnumerable<AddressBookEntryModel>>
+            var contacts = _addressBookBL.GetAll();
+
+            ResponseModel<IEnumerable<AddressBookEntryModel>> responseModel = new ResponseModel<IEnumerable<AddressBookEntryModel>>
             {
                 Success = true,
-                Message = "Contacts fetched successfully.",
+                Message = "All contacts fetched successfully",
                 Data = contacts
-            });
+            };
+
+            return Ok(responseModel);
         }
-        /// <summary>
-        /// Get contacts by id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        // GET: api/addressbook/{id}
+
         [HttpGet("{id}")]
-        public IActionResult GetContactById(int id)
+        public IActionResult GetById(int id)
         {
-            var contact = _addressBookEntries.FirstOrDefault(e => e.Id == id);
+            var contact = _addressBookBL.GetById(id);
+
             if (contact == null)
             {
-                return NotFound(new ResponseModel<string> { Success = false, Message = "Contact not found." });
-            }
-
-            return Ok(new ResponseModel<AddressBookEntryModel>
-            {
-                Success = true,
-                Message = "Contact fetched successfully.",
-                Data = _mapper.Map<AddressBookEntryModel>(contact)
-            });
-        }
-        /// <summary>
-        /// Add Contacts
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        // POST: api/addressbook
-        [HttpPost]
-        public IActionResult AddContact([FromBody] AddressBookEntryModel request)
-        {
-            var validationResult = _validator.Validate(request);
-            if (!validationResult.IsValid)
-            {
-                return BadRequest(new ResponseModel<string>
+                return NotFound(new ResponseModel<string>
                 {
                     Success = false,
-                    Message = "Validation failed.",
-                    Data = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage))
+                    Message = $"Contact with ID {id} not found",
+                    Data = null
                 });
             }
 
-            var newContact = _mapper.Map<AddressBookEntity>(request);
-            newContact.Id = _idCounter++;
-            _addressBookEntries.Add(newContact);
+            ResponseModel<AddressBookEntryModel> responseModel = new ResponseModel<AddressBookEntryModel>
+            {
+                Success = true,
+                Message = $"Contact with ID {id} fetched successfully",
+                Data = contact
+            };
 
-            return CreatedAtAction(nameof(GetContactById), new { id = newContact.Id }, new ResponseModel<AddressBookEntryModel>
+            return Ok(responseModel);
+        }
+
+        [HttpPost]
+        public ActionResult<ResponseModel<AddressBookEntryModel>> Add([FromBody] RequestModel requestModel)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new ResponseModel<object>
+                {
+                    Success = false,
+                    Message = "Validation failed.",
+                    Data = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
+            }
+
+            var addedContact = _addressBookBL.Add(requestModel);
+
+            return CreatedAtAction(nameof(GetById), new { id = addedContact.Id }, new ResponseModel<AddressBookEntryModel>
             {
                 Success = true,
                 Message = "Contact added successfully.",
-                Data = _mapper.Map<AddressBookEntryModel>(newContact)
+                Data = addedContact
             });
         }
-        /// <summary>
-        /// Edit by Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        // PUT: api/addressbook/{id}
+
+
+
         [HttpPut("{id}")]
-        public IActionResult UpdateContact(int id, [FromBody] AddressBookEntryModel request)
+        public IActionResult Update(int id, [FromBody] AddressBookEntryModel addressBookModel)
         {
-            var existingContact = _addressBookEntries.FirstOrDefault(e => e.Id == id);
-            if (existingContact == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound(new ResponseModel<string> { Success = false, Message = "Contact not found." });
+                return BadRequest(ModelState);
             }
 
-            _mapper.Map(request, existingContact);
-            return Ok(new ResponseModel<AddressBookEntryModel>
+            var updatedContact = _addressBookBL.Update(id, addressBookModel);
+
+            if (updatedContact == null)
+            {
+                return NotFound(new ResponseModel<string>
+                {
+                    Success = false,
+                    Message = $"Contact with ID {id} not found",
+                    Data = null
+                });
+            }
+
+            ResponseModel<AddressBookEntryModel> responseModel = new ResponseModel<AddressBookEntryModel>
             {
                 Success = true,
-                Message = "Contact updated successfully.",
-                Data = _mapper.Map<AddressBookEntryModel>(existingContact)
-            });
+                Message = $"Contact with ID {id} updated successfully",
+                Data = updatedContact
+            };
+
+            return Ok(responseModel);
         }
-        /// <summary>
-        /// Delete by Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        // DELETE: api/addressbook/{id}
+
         [HttpDelete("{id}")]
-        public IActionResult DeleteContact(int id)
+        public IActionResult Delete(int id)
         {
-            var contactToDelete = _addressBookEntries.FirstOrDefault(e => e.Id == id);
-            if (contactToDelete == null)
+            var isDeleted = _addressBookBL.Delete(id);
+
+            if (!isDeleted)
             {
-                return NotFound(new ResponseModel<string> { Success = false, Message = "Contact not found." });
+                return NotFound(new ResponseModel<string>
+                {
+                    Success = false,
+                    Message = $"Contact with ID {id} not found",
+                    Data = null
+                });
             }
 
-            _addressBookEntries.Remove(contactToDelete);
-            return NoContent();
+            ResponseModel<string> responseModel = new ResponseModel<string>
+            {
+                Success = true,
+                Message = $"Contact with ID {id} deleted successfully",
+                Data = "Deletion successful"
+            };
+
+            return Ok(responseModel);
         }
     }
 }

@@ -25,12 +25,11 @@ namespace RepositoryLayer.Entity
 
         public string? Address { get; set; }
 
-
         [Required]
-        [ForeignKey("User")] // Defines UserId as a foreign key to the User table
         public int UserId { get; set; }
 
-        // Navigation property to establish the relationship
+        [ForeignKey("UserId")] // Defines UserId as a foreign key to the User table
+
         public virtual UserEntity User { get; set; }
     }
 }

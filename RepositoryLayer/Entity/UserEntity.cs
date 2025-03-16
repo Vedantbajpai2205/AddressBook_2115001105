@@ -11,7 +11,6 @@ namespace RepositoryLayer.Entity
     public class UserEntity
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
         [Required, MaxLength(100)]

@@ -21,7 +21,7 @@ namespace RepositoryLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("RepositoryLayer.Entity.AddressEntity", b =>
+            modelBuilder.Entity("RepositoryLayer.Entity.AddressBookEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,7 +83,7 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("RepositoryLayer.Entity.AddressEntity", b =>
+            modelBuilder.Entity("RepositoryLayer.Entity.AddressBookEntity", b =>
                 {
                     b.HasOne("RepositoryLayer.Entity.UserEntity", "User")
                         .WithMany("AddressBookEntries")
